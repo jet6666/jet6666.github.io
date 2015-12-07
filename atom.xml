@@ -3,9 +3,9 @@
   <title><![CDATA[JetWong's Note]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2015-10-23T09:45:03.607Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://jet6666.github.io/"/>
+  <updated>2015-12-07T07:19:01.788Z</updated>
+  <id>http://jet6666.github.io/</id>
   
   <author>
     <name><![CDATA[Jet]]></name>
@@ -15,9 +15,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://jet6666.github.io/2015/12/07/hello-world/"/>
+    <id>http://jet6666.github.io/2015/12/07/hello-world/</id>
+    <published>2015-12-07T07:19:01.788Z</published>
+    <updated>2015-12-07T07:19:01.788Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span> (这个很少用，都是用其他工具来生成)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server (用来预览)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate (直接生成html代码)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy  (或者hexo d，这里面要配置config.yml里面的deploy项：空格空格空格，重要的事说三遍+)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title></title>
-    <link href="http://yoursite.com/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
-    <id>http://yoursite.com/2015/12/07/unity3d的基本显示/</id>
+    <link href="http://jet6666.github.io/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
+    <id>http://jet6666.github.io/2015/12/07/unity3d的基本显示/</id>
     <published>2015-12-07T07:05:44.563Z</published>
     <updated>2015-10-23T09:45:03.607Z</updated>
     <content type="html"><![CDATA[<h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
@@ -41,8 +63,8 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2015/12/07/unity3d%E6%A0%87%E7%AD%BE%E9%A1%B5%E8%AF%95%E9%AA%8C/"/>
-    <id>http://yoursite.com/2015/12/07/unity3d标签页试验/</id>
+    <link href="http://jet6666.github.io/2015/12/07/unity3d%E6%A0%87%E7%AD%BE%E9%A1%B5%E8%AF%95%E9%AA%8C/"/>
+    <id>http://jet6666.github.io/2015/12/07/unity3d标签页试验/</id>
     <published>2015-12-07T06:25:35.121Z</published>
     <updated>2015-12-07T06:25:12.568Z</updated>
     <content type="html"><![CDATA[<h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
@@ -199,8 +221,8 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2015/11/17/AS3%E8%AE%BF%E9%97%AEHTTPS(SSL)%E6%95%B0%E6%8D%AE/"/>
-    <id>http://yoursite.com/2015/11/17/AS3访问HTTPS(SSL)数据/</id>
+    <link href="http://jet6666.github.io/2015/11/17/AS3%E8%AE%BF%E9%97%AEHTTPS(SSL)%E6%95%B0%E6%8D%AE/"/>
+    <id>http://jet6666.github.io/2015/11/17/AS3访问HTTPS(SSL)数据/</id>
     <published>2015-11-17T05:57:48.359Z</published>
     <updated>2015-11-17T05:56:30.881Z</updated>
     <content type="html"><![CDATA[<h2 id="AS3访问HTTPS(SSL)数据">AS3访问HTTPS(SSL)数据</h2><p>按照常规的说法：</p>
@@ -228,8 +250,8 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2015/09/16/cocos2dx%E7%BA%B9%E7%90%86%E5%9B%BE%E7%89%87%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://yoursite.com/2015/09/16/cocos2dx纹理图片设计/</id>
+    <link href="http://jet6666.github.io/2015/09/16/cocos2dx%E7%BA%B9%E7%90%86%E5%9B%BE%E7%89%87%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://jet6666.github.io/2015/09/16/cocos2dx纹理图片设计/</id>
     <published>2015-09-16T06:09:12.002Z</published>
     <updated>2015-09-16T06:09:12.002Z</updated>
     <content type="html"><![CDATA[<h2 id="cocos2dx纹理图片设置">cocos2dx纹理图片设置</h2><h2 id="先上方案">先上方案　</h2><ol>
@@ -279,8 +301,8 @@
   
   <entry>
     <title><![CDATA[helloHexo]]></title>
-    <link href="http://yoursite.com/2015/05/15/helloHexo/"/>
-    <id>http://yoursite.com/2015/05/15/helloHexo/</id>
+    <link href="http://jet6666.github.io/2015/05/15/helloHexo/"/>
+    <id>http://jet6666.github.io/2015/05/15/helloHexo/</id>
     <published>2015-05-15T03:02:04.000Z</published>
     <updated>2015-05-15T03:02:20.362Z</updated>
     <content type="html"><![CDATA[<p>来源自：<a href="http://wsgzao.github.io/post/hexo-guide/#" target="_blank" rel="external">http://wsgzao.github.io/post/hexo-guide/#</a></p>
@@ -294,8 +316,8 @@
   
   <entry>
     <title><![CDATA[hellojet]]></title>
-    <link href="http://yoursite.com/2015/05/15/hellojet/"/>
-    <id>http://yoursite.com/2015/05/15/hellojet/</id>
+    <link href="http://jet6666.github.io/2015/05/15/hellojet/"/>
+    <id>http://jet6666.github.io/2015/05/15/hellojet/</id>
     <published>2015-05-15T02:49:24.000Z</published>
     <updated>2015-05-15T02:50:01.951Z</updated>
     <content type="html"><![CDATA[<p><strong>4G = 第四代通信技术 </strong></p>
@@ -313,28 +335,6 @@
     <summary type="html">
     <![CDATA[<p><strong>4G = 第四代通信技术 </strong></p>
 <p>4G即是第四代移动电话行动通信标准（英语：fourth generation of mobile phone mobile communications standards，缩写为4G）<br>按照]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://yoursite.com/2015/05/15/hello-world/"/>
-    <id>http://yoursite.com/2015/05/15/hello-world/</id>
-    <published>2015-05-15T02:39:20.135Z</published>
-    <updated>2015-05-15T02:39:20.135Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
     </summary>
     
   </entry>
