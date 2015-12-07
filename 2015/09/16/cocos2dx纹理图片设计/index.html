@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JetWong&#39;s Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="cocos2dx纹理图片设置先上方案　
+UI设计   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式   缺点就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的
+
+特效类，公共资源类 特效和公用资源类一次性打包成pvr.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JetWong's Note">
+<meta property="og:url" content="http://yoursite.com/2015/09/16/cocos2dx纹理图片设计/index.html">
+<meta property="og:site_name" content="JetWong's Note">
+<meta property="og:description" content="cocos2dx纹理图片设置先上方案　
+UI设计   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式   缺点就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的
+
+特效类，公共资源类 特效和公用资源类一次性打包成pvr.">
+<meta property="og:image" content="/image/mp/pvrtc4.JPG">
+<meta property="og:image" content="/image/mp/etc1.JPG">
+<meta property="og:image" content="/image/mp/tpmem.JPG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JetWong's Note">
+<meta name="twitter:description" content="cocos2dx纹理图片设置先上方案　
+UI设计   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式   缺点就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的
+
+特效类，公共资源类 特效和公用资源类一次性打包成pvr.">
+  
+    <link rel="alternative" href="/atom.xml" title="JetWong&#39;s Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JetWong&#39;s Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cocos2dx纹理图片设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/16/cocos2dx纹理图片设计/" class="article-date">
+  <time datetime="2015-09-16T06:09:12.002Z" itemprop="datePublished">2015-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cocos2dx纹理图片设置">cocos2dx纹理图片设置</h2><h2 id="先上方案">先上方案　</h2><ol>
+<li><h4 id="UI设计">UI设计</h4><p>   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式<br>   <strong>缺点</strong>就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的</p>
+</li>
+<li><h4 id="特效类，公共资源类">特效类，公共资源类</h4><p> 特效和公用资源类一次性打包成pvr.ccz,iOS打成pvrtc4格式， <img src="/image/mp/pvrtc4.JPG" alt="如下图"></p>
+<p> 在android上可以打包成etc1   <img src="/image/mp/etc1.JPG" alt="ShowImage">  </p>
+<p> 如果只放一次的特效还可以在放完把他从内存中删除掉</p>
+</li>
+<li><h4 id="图片资源">图片资源</h4><p> 对于零零碎碎的图来说，就要看情况了，如果是ＮＰＣ头像之类，有个几百张，实际游戏中每次都用不了几张，如果打个包就是种浪费,还不如放成jpg或者png直接读取好了,关键看右下角的内存占用： 如果一次内存就　２０ＭＢ什么的，就可怕了</p>
+<p> <img src="/image/mp/tpmem.JPG" alt="下图"><br> 反观占用磁盘空间，好像就不是那么重要的了!</p>
+</li>
+<li><h4 id="cocos2dx吃内存">cocos2dx吃内存</h4><p> dddddd</p>
+<a id="more"></a>
+</li>
+</ol>
+<h2 id="说明">说明</h2><ol>
+<li>基本上所有图片打包工具使用TexturePacker (简称TP)，好处是OpenGL ES对加载的图片渲染次数减少，不然UI一次性加载很多图片资源会很卡的．对客户端来说磁盘ＩＯ倒是次要的． </li>
+<li>对于pvrtc4只有原图的1/8哦，这个太诱人了，但拿PVRTC图片与JPG图片作对比的话，它只有JPG图片中等质量，但是，最大的好处是可以不用在内存里面解压缩纹理。　<br>缺点是：只有iOS平台能用哦，android平台没法用上的</li>
+<li>关于NPOT和POT(Power Of Two，二次幂)，压缩图片资源很早的时候会叮咛一定要用POT，但现在看来是没有必要的，但在TP里面还有这个选项，注意选择．</li>
+</ol>
+<h2 id="其他零碎的东西：">其他零碎的东西：</h2><ol>
+<li>关于图片纹理加密，这里</li>
+</ol>
+<h3 id="参考来源：">参考来源：</h3><ol>
+<li><a href="http://blog.sina.com.cn/s/blog_6fbe210701015j7z.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6fbe210701015j7z.html</a> </li>
+<li><a href="http://wenku.baidu.com/view/5459ba22bd64783e08122b03" target="_blank" rel="external">http://wenku.baidu.com/view/5459ba22bd64783e08122b03</a> </li>
+<li><a href="http://www.cnblogs.com/zilongshanren/archive/2012/12/09/2810017.html" target="_blank" rel="external">http://www.cnblogs.com/zilongshanren/archive/2012/12/09/2810017.html</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/09/16/cocos2dx纹理图片设计/" data-id="cihvm3p4t0005e8sueu9sz1ow" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/17/AS3访问HTTPS(SSL)数据/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/15/helloHexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">helloHexo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/07/unity3d的基本显示/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/unity3d标签页试验/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/17/AS3访问HTTPS(SSL)数据/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/16/cocos2dx纹理图片设计/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/15/helloHexo/">helloHexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Jet<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+ 
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

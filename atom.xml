@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[JetWong's Note]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-10-23T09:45:03.607Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Jet]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
+    <id>http://yoursite.com/2015/12/07/unity3d的基本显示/</id>
+    <published>2015-12-07T07:05:44.563Z</published>
+    <updated>2015-10-23T09:45:03.607Z</updated>
+    <content type="html"><![CDATA[<h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
+</code></pre><p>然后在界面上给这个image赋值</p>
+<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
+</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
+<p>C#中显示</p>
+<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
+</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
+<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">publi]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2015/12/07/unity3d%E6%A0%87%E7%AD%BE%E9%A1%B5%E8%AF%95%E9%AA%8C/"/>
+    <id>http://yoursite.com/2015/12/07/unity3d标签页试验/</id>
+    <published>2015-12-07T06:25:35.121Z</published>
+    <updated>2015-12-07T06:25:12.568Z</updated>
+    <content type="html"><![CDATA[<h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
+<p> 错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
+</blockquote>
+<h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd" target="_blank" rel="external">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
+<h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
+<span class="keyword">public</span> GameObject[] contentList;<span class="comment">//标签内容</span>
+
+    TabGroup tabGroup = <span class="keyword">new</span> TabGroup();
+    GameObject[] buttonList = <span class="keyword">new</span> GameObject[tabButtonList.Length];
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tabButtonList.Length; i++)
+    {
+        buttonList[i] = tabButtonList[i].gameObject;
+    }
+    tabGroup.AddTabs(buttonList);
+    tabGroup.OnTabGroup = <span class="keyword">delegate</span>(<span class="keyword">int</span> selectedIndex)
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; contentList.Length; j++)
+        {
+            <span class="keyword">bool</span> selected = j == selectedIndex;
+            contentList[j].gameObject.SetActive(selected);<span class="comment">//显示哪个内容</span>
+        }
+    };
+    tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
+</code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>
+<a id="more"></a>
+<h3 id="下载">下载</h3><p><a href="/tabgroup/testTab.unity" title="ddd">在这里下载</a></p>
+<h3 id="源码：">源码：</h3><pre><code><span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> System.Collections;
+<span class="keyword">using</span> System.Collections.Generic;
+
+
+<span class="comment">/**
+ * 标签页切换
+ *  TabGroup  tabGroup = new TabGroup();
+    tabGroup.AddTabs(GameObject[] tabList);
+    tabGroup.OnTabGroup = delegate(int selectedIndex){}
+ * */</span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TabGroup</span>
+{
+    <span class="comment">//标签列表</span>
+    <span class="keyword">private</span> GameObject[] tabList;
+    <span class="comment">//已选中标签id 从0开始...</span>
+    <span class="keyword">private</span> <span class="keyword">int</span> _selectedIndex;
+    <span class="comment">//标签页回调函数</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">DeletegateTabGroup</span><span class="params">(<span class="keyword">int</span> selectedIndex)</span></span>;
+    <span class="keyword">public</span> DeletegateTabGroup OnTabGroup;
+
+    <span class="function"><span class="keyword">public</span> <span class="title">TabGroup</span><span class="params">()</span>
+    </span>{
+        _selectedIndex = -<span class="number">1</span>;
+    }                               z
+
+
+    <span class="comment">/**
+     * 跳转到指定的标签
+     * */</span>
+    <span class="keyword">public</span> <span class="keyword">int</span> selectedIndex
+    {
+        <span class="keyword">get</span> { <span class="keyword">return</span> _selectedIndex; }
+        <span class="keyword">set</span>
+        {
+            <span class="keyword">if</span> (_selectedIndex == <span class="keyword">value</span>) <span class="keyword">return</span>;
+            <span class="keyword">if</span> (<span class="keyword">value</span> &gt;= tabList.Length) <span class="keyword">return</span>;
+            GameObject g = tabList[<span class="keyword">value</span>];
+            OnTabClick(g);
+        }
+    }
+
+    <span class="comment">/**
+     * 加上标签按钮
+     * */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddTabs</span><span class="params">(GameObject[] list)</span>
+    </span>{
+        tabList = list;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Length; i++)
+        {
+            GameObject o = list[i].gameObject;
+            <span class="keyword">if</span> (o)
+            {
+                UIEventListener.Get(o).onClick += OnTabClick;<span class="comment">// delegate(GameObject g)</span>
+            }
+
+        }
+
+    }
+    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTabClick</span><span class="params">(GameObject g)</span>
+    </span>{
+        <span class="keyword">int</span> index = -<span class="number">1</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tabList.Length; i++)
+        {
+            GameObject o = tabList[i].gameObject;
+            UIButton button = <span class="keyword">null</span>;
+            <span class="keyword">if</span> (o != <span class="keyword">null</span>) button = tabList[i].GetComponent&lt;UIButton&gt;();
+            <span class="keyword">if</span> (o &amp;&amp; o == g)
+            {
+                index = i;
+                <span class="comment">//寻找uibutton</span>
+                <span class="keyword">if</span> (button != <span class="keyword">null</span>)
+                {
+                    button.isEnabled = <span class="keyword">false</span>;
+                }
+            }
+            <span class="keyword">else</span>
+            {
+                <span class="keyword">if</span> (button != <span class="keyword">null</span>)
+                {
+                    button.isEnabled = <span class="keyword">true</span>;
+                }
+            }
+        }
+        Debug.Log(<span class="string">" selected Index = "</span> + index);
+        <span class="keyword">if</span> (index != _selectedIndex)
+        {
+            _selectedIndex = index;
+            <span class="keyword">if</span> (OnTabGroup != <span class="keyword">null</span>)
+            {
+                OnTabGroup(index);
+            }
+        }
+    }
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
+<p> 错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
+</blockquote>
+<h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
+<h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
+<span class="keyword">public</span> GameObject[] contentList;<span class="comment">//标签内容</span>
+
+    TabGroup tabGroup = <span class="keyword">new</span> TabGroup();
+    GameObject[] buttonList = <span class="keyword">new</span> GameObject[tabButtonList.Length];
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tabButtonList.Length; i++)
+    {
+        buttonList[i] = tabButtonList[i].gameObject;
+    }
+    tabGroup.AddTabs(buttonList);
+    tabGroup.OnTabGroup = <span class="keyword">delegate</span>(<span class="keyword">int</span> selectedIndex)
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; contentList.Length; j++)
+        {
+            <span class="keyword">bool</span> selected = j == selectedIndex;
+            contentList[j].gameObject.SetActive(selected);<span class="comment">//显示哪个内容</span>
+        }
+    };
+    tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
+</code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2015/11/17/AS3%E8%AE%BF%E9%97%AEHTTPS(SSL)%E6%95%B0%E6%8D%AE/"/>
+    <id>http://yoursite.com/2015/11/17/AS3访问HTTPS(SSL)数据/</id>
+    <published>2015-11-17T05:57:48.359Z</published>
+    <updated>2015-11-17T05:56:30.881Z</updated>
+    <content type="html"><![CDATA[<h2 id="AS3访问HTTPS(SSL)数据">AS3访问HTTPS(SSL)数据</h2><p>按照常规的说法：</p>
+<p>A.com 访问 B.com只需要有B.com/crossdomain.xml就可以了，但有时还不行</p>
+<p>如：a.com/1.swf 访问 <a href="https://b.com/2.dat" target="_blank" rel="external">https://b.com/2.dat</a> 就还是会报完全策略有问题</p>
+<p>原来的b.com/crossdomain.xml如下：</p>
+<pre><code>&lt;cross-<span class="built_in">domain</span>-policy&gt;
+&lt;site-<span class="literal">control</span> permitted-cross-<span class="built_in">domain</span>-policies=<span class="string">"all"</span>/&gt;
+&lt;allow-access-from <span class="built_in">domain</span>=<span class="string">"*"</span> to-ports=<span class="string">"*"</span>/&gt;
+&lt;/cross-<span class="built_in">domain</span>-policy&gt;
+</code></pre><p>原来：SSL访问时在crossdomain.xml中还有字段说明：</p>
+<pre><code>&lt;allow-access-from <span class="variable">domain=</span><span class="string">"www.example.com"</span> <span class="variable">secure=</span><span class="string">"false"</span> /&gt;
+</code></pre><p><strong><em>secure=”false”</em></strong></p>
+<p>硬是逼着写个界面出来 :</p>
+<p><a href="/TestAjax.swf">打开测试</a></p>
+<p><a href="http://stackoverflow.com/questions/1387608/can-a-swf-using-urlloader-access-https-webservice" title="来源" target="_blank" rel="external"> 参考来源1：</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="AS3访问HTTPS(SSL)数据">AS3访问HTTPS(SSL)数据</h2><p>按照常规的说法：</p>
+<p>A.com 访问 B.com只需要有B.com/crossdomain.xml就可以了，但有时还不行</p>
+<p>如：a.com/1.swf ]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2015/09/16/cocos2dx%E7%BA%B9%E7%90%86%E5%9B%BE%E7%89%87%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://yoursite.com/2015/09/16/cocos2dx纹理图片设计/</id>
+    <published>2015-09-16T06:09:12.002Z</published>
+    <updated>2015-09-16T06:09:12.002Z</updated>
+    <content type="html"><![CDATA[<h2 id="cocos2dx纹理图片设置">cocos2dx纹理图片设置</h2><h2 id="先上方案">先上方案　</h2><ol>
+<li><h4 id="UI设计">UI设计</h4><p>   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式<br>   <strong>缺点</strong>就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的</p>
+</li>
+<li><h4 id="特效类，公共资源类">特效类，公共资源类</h4><p> 特效和公用资源类一次性打包成pvr.ccz,iOS打成pvrtc4格式， <img src="/image/mp/pvrtc4.JPG" alt="如下图"></p>
+<p> 在android上可以打包成etc1   <img src="/image/mp/etc1.JPG" alt="ShowImage">  </p>
+<p> 如果只放一次的特效还可以在放完把他从内存中删除掉</p>
+</li>
+<li><h4 id="图片资源">图片资源</h4><p> 对于零零碎碎的图来说，就要看情况了，如果是ＮＰＣ头像之类，有个几百张，实际游戏中每次都用不了几张，如果打个包就是种浪费,还不如放成jpg或者png直接读取好了,关键看右下角的内存占用： 如果一次内存就　２０ＭＢ什么的，就可怕了</p>
+<p> <img src="/image/mp/tpmem.JPG" alt="下图"><br> 反观占用磁盘空间，好像就不是那么重要的了!</p>
+</li>
+<li><h4 id="cocos2dx吃内存">cocos2dx吃内存</h4><p> dddddd</p>
+<a id="more"></a>
+</li>
+</ol>
+<h2 id="说明">说明</h2><ol>
+<li>基本上所有图片打包工具使用TexturePacker (简称TP)，好处是OpenGL ES对加载的图片渲染次数减少，不然UI一次性加载很多图片资源会很卡的．对客户端来说磁盘ＩＯ倒是次要的． </li>
+<li>对于pvrtc4只有原图的1/8哦，这个太诱人了，但拿PVRTC图片与JPG图片作对比的话，它只有JPG图片中等质量，但是，最大的好处是可以不用在内存里面解压缩纹理。　<br>缺点是：只有iOS平台能用哦，android平台没法用上的</li>
+<li>关于NPOT和POT(Power Of Two，二次幂)，压缩图片资源很早的时候会叮咛一定要用POT，但现在看来是没有必要的，但在TP里面还有这个选项，注意选择．</li>
+</ol>
+<h2 id="其他零碎的东西：">其他零碎的东西：</h2><ol>
+<li>关于图片纹理加密，这里</li>
+</ol>
+<h3 id="参考来源：">参考来源：</h3><ol>
+<li><a href="http://blog.sina.com.cn/s/blog_6fbe210701015j7z.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6fbe210701015j7z.html</a> </li>
+<li><a href="http://wenku.baidu.com/view/5459ba22bd64783e08122b03" target="_blank" rel="external">http://wenku.baidu.com/view/5459ba22bd64783e08122b03</a> </li>
+<li><a href="http://www.cnblogs.com/zilongshanren/archive/2012/12/09/2810017.html" target="_blank" rel="external">http://www.cnblogs.com/zilongshanren/archive/2012/12/09/2810017.html</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="cocos2dx纹理图片设置">cocos2dx纹理图片设置</h2><h2 id="先上方案">先上方案　</h2><ol>
+<li><h4 id="UI设计">UI设计</h4><p>   我们使用cocos ui editor制作ui的时候，因为弹出的界面都是一些零碎的图片组成，所以可以考虑把他们打包一下(TP)，cocosUI编辑器是支持plist和png的，但不支持pvrtc和etc格式<br>   <strong>缺点</strong>就是每次修改资源时会重新发包一次，这个plist和png其实还是挺大的</p>
+</li>
+<li><h4 id="特效类，公共资源类">特效类，公共资源类</h4><p> 特效和公用资源类一次性打包成pvr.ccz,iOS打成pvrtc4格式， <img src="/image/mp/pvrtc4.JPG" alt="如下图"></p>
+<p> 在android上可以打包成etc1   <img src="/image/mp/etc1.JPG" alt="ShowImage">  </p>
+<p> 如果只放一次的特效还可以在放完把他从内存中删除掉</p>
+</li>
+<li><h4 id="图片资源">图片资源</h4><p> 对于零零碎碎的图来说，就要看情况了，如果是ＮＰＣ头像之类，有个几百张，实际游戏中每次都用不了几张，如果打个包就是种浪费,还不如放成jpg或者png直接读取好了,关键看右下角的内存占用： 如果一次内存就　２０ＭＢ什么的，就可怕了</p>
+<p> <img src="/image/mp/tpmem.JPG" alt="下图"><br> 反观占用磁盘空间，好像就不是那么重要的了!</p>
+</li>
+<li><h4 id="cocos2dx吃内存">cocos2dx吃内存</h4><p> dddddd</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[helloHexo]]></title>
+    <link href="http://yoursite.com/2015/05/15/helloHexo/"/>
+    <id>http://yoursite.com/2015/05/15/helloHexo/</id>
+    <published>2015-05-15T03:02:04.000Z</published>
+    <updated>2015-05-15T03:02:20.362Z</updated>
+    <content type="html"><![CDATA[<p>来源自：<a href="http://wsgzao.github.io/post/hexo-guide/#" target="_blank" rel="external">http://wsgzao.github.io/post/hexo-guide/#</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>来源自：<a href="http://wsgzao.github.io/post/hexo-guide/#" target="_blank" rel="external">http://wsgzao.github.io/post/hexo-guide/#</a></p>
+]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[hellojet]]></title>
+    <link href="http://yoursite.com/2015/05/15/hellojet/"/>
+    <id>http://yoursite.com/2015/05/15/hellojet/</id>
+    <published>2015-05-15T02:49:24.000Z</published>
+    <updated>2015-05-15T02:50:01.951Z</updated>
+    <content type="html"><![CDATA[<p><strong>4G = 第四代通信技术 </strong></p>
+<p>4G即是第四代移动电话行动通信标准（英语：fourth generation of mobile phone mobile communications standards，缩写为4G）<br>按照ITU的定义，<font color="red">静态传输速率达到1Gbps，用户在高速移动状态下可以达到  <strong>100</strong>  Mbps</font>，就可以作为4G的技术之一。 </p>
+<p><strong>4G网络有如下两个标准：</strong></p>
+<p><strong>LTE Advanced</strong>（长期演进技术升级版）：是LTE的增强，完全向后兼容LTE，通常通过在LTE上通过软件升级即可，升级过程类似于从WCDMA升级到 HSPA。峰值速率：<font color="red"><strong>下行1Gbps，上行500Mbps</strong></font>。是第一批被国际电信联盟承认的4G标准，也是事实上的唯一主流4G标准。 </p>
+<p><strong>WiMAX-Advanced</strong>（全球互通微波存取升级版）：即IEEE 802.16m,是WiMAX的增强，由美国Intel所主导，接收下行与上行最高速率可达到300Mbps，在静止定点接收可高达1Gbps。也是国际电信联盟承认的4G标准，不过随着英特尔于2010年退出，WiMAX技术也逐渐被运营商放弃，并开始将设备升级为LTE，WiMAX论坛也于2012年将 TD-LTE纳入WiMAX 2.1规范。</p>
+<p><strong>ＬＴＥ</strong></p>
+<p>( LTE，Long Term Evolution ,高速下行分组接入往4G發展的過渡版本，被俗稱為3.9G。長期演進技術是应用于手机及数据卡终端的高速无线通讯标准，该标准基于旧有的GSM/EDGE和UMTS/HSPA网络技术，并使用调制技术提升网络容量及速度[1][2]。该标准由3GPP（第三代合作伙伴计划）于2008年第四季度于Release 8版本中首次提出，并在Release 9版本中进行少许改良。)</p>
+<p>LTE是3GPP 2004年启动的项目，分为FDD-LTE、TD-LTE，前者由欧美主导，后者由我国主导，2007年工信部把TDD-LTE命名为TD-LTE。</p>
+<p><strong>FDD-LTE</strong></p>
+<p>FDD（频分双工）是该LTE技术的双工模式之一</p>
+<p>来源：<a href="http://www.srrc.org.cn/NewsShow8393.aspx" target="_blank" rel="external">http://www.srrc.org.cn/NewsShow8393.aspx</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>4G = 第四代通信技术 </strong></p>
+<p>4G即是第四代移动电话行动通信标准（英语：fourth generation of mobile phone mobile communications standards，缩写为4G）<br>按照]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://yoursite.com/2015/05/15/hello-world/"/>
+    <id>http://yoursite.com/2015/05/15/hello-world/</id>
+    <published>2015-05-15T02:39:20.135Z</published>
+    <updated>2015-05-15T02:39:20.135Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
