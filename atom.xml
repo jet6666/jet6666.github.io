@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-07T07:19:01.788Z</updated>
+  <updated>2015-12-07T07:22:15.076Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -15,60 +15,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://jet6666.github.io/2015/12/07/hello-world/"/>
-    <id>http://jet6666.github.io/2015/12/07/hello-world/</id>
-    <published>2015-12-07T07:19:01.788Z</published>
-    <updated>2015-12-07T07:19:01.788Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span> (这个很少用，都是用其他工具来生成)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server (用来预览)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate (直接生成html代码)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy  (或者hexo d，这里面要配置config.yml里面的deploy项：空格空格空格，重要的事说三遍+)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://jet6666.github.io/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
-    <id>http://jet6666.github.io/2015/12/07/unity3d的基本显示/</id>
-    <published>2015-12-07T07:05:44.563Z</published>
-    <updated>2015-10-23T09:45:03.607Z</updated>
-    <content type="html"><![CDATA[<h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
-<p>代码中显示图片？？</p>
-<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
-</code></pre><p>然后在界面上给这个image赋值</p>
-<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
-</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
-<p>C#中显示</p>
-<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
-</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
-<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
-<p>代码中显示图片？？</p>
-<pre><code><span class="keyword">publi]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title></title>
     <link href="http://jet6666.github.io/2015/12/07/unity3d%E6%A0%87%E7%AD%BE%E9%A1%B5%E8%AF%95%E9%AA%8C/"/>
     <id>http://jet6666.github.io/2015/12/07/unity3d标签页试验/</id>
-    <published>2015-12-07T06:25:35.121Z</published>
-    <updated>2015-12-07T06:25:12.568Z</updated>
+    <published>2015-12-07T07:22:15.076Z</published>
+    <updated>2015-12-07T07:22:15.076Z</updated>
     <content type="html"><![CDATA[<h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
-<p> 错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
+<p>   错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
 </blockquote>
 <h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd" target="_blank" rel="external">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
 <h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
@@ -191,7 +144,7 @@
 </code></pre>]]></content>
     <summary type="html">
     <![CDATA[<h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
-<p> 错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
+<p>   错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
 </blockquote>
 <h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
 <h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
@@ -215,6 +168,53 @@
     tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
 </code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>]]>
     
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jet6666.github.io/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
+    <id>http://jet6666.github.io/2015/12/07/unity3d的基本显示/</id>
+    <published>2015-12-07T07:21:49.671Z</published>
+    <updated>2015-12-07T07:21:49.671Z</updated>
+    <content type="html"><![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
+</code></pre><p>然后在界面上给这个image赋值</p>
+<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
+</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
+<p>C#中显示</p>
+<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
+</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
+<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">p]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://jet6666.github.io/2015/12/07/hello-world/"/>
+    <id>http://jet6666.github.io/2015/12/07/hello-world/</id>
+    <published>2015-12-07T07:19:01.788Z</published>
+    <updated>2015-12-07T07:19:01.788Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span> (这个很少用，都是用其他工具来生成)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server (用来预览)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate (直接生成html代码)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy  (或者hexo d，这里面要配置config.yml里面的deploy项：空格空格空格，重要的事说三遍+)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
     </summary>
     
   </entry>

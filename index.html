@@ -61,6 +61,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-unity3d标签页试验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/07/unity3d标签页试验/" class="article-date">
+  <time datetime="2015-12-07T07:22:15.076Z" itemprop="datePublished">2015-12-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
+<p>   错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
+</blockquote>
+<h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
+<h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
+<span class="keyword">public</span> GameObject[] contentList;<span class="comment">//标签内容</span>
+
+    TabGroup tabGroup = <span class="keyword">new</span> TabGroup();
+    GameObject[] buttonList = <span class="keyword">new</span> GameObject[tabButtonList.Length];
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tabButtonList.Length; i++)
+    {
+        buttonList[i] = tabButtonList[i].gameObject;
+    }
+    tabGroup.AddTabs(buttonList);
+    tabGroup.OnTabGroup = <span class="keyword">delegate</span>(<span class="keyword">int</span> selectedIndex)
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; contentList.Length; j++)
+        {
+            <span class="keyword">bool</span> selected = j == selectedIndex;
+            contentList[j].gameObject.SetActive(selected);<span class="comment">//显示哪个内容</span>
+        }
+    };
+    tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
+</code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/07/unity3d标签页试验/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jet6666.github.io/2015/12/07/unity3d标签页试验/" data-id="cihvmrrqb0002kssujplp6kf7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-unity3d的基本显示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/07/unity3d的基本显示/" class="article-date">
+  <time datetime="2015-12-07T07:21:49.671Z" itemprop="datePublished">2015-12-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="unity3d的基本显示">unity3d的基本显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
+</code></pre><p>然后在界面上给这个image赋值</p>
+<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
+</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
+<p>C#中显示</p>
+<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
+</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
+<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jet6666.github.io/2015/12/07/unity3d的基本显示/" data-id="cihvmrrq30001kssu875viv7y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/12/07/hello-world/" class="article-date">
@@ -96,97 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/hello-world/" data-id="cihvmnidv0005c0su37ri173o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-unity3d的基本显示" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/07/unity3d的基本显示/" class="article-date">
-  <time datetime="2015-12-07T07:05:44.563Z" itemprop="datePublished">2015-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="游戏第一个重要的显示">游戏第一个重要的显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
-<p>代码中显示图片？？</p>
-<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
-</code></pre><p>然后在界面上给这个image赋值</p>
-<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
-</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
-<p>C#中显示</p>
-<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
-</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
-<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/unity3d的基本显示/" data-id="cihvmnidd0001c0succn27neb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-unity3d标签页试验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/07/unity3d标签页试验/" class="article-date">
-  <time datetime="2015-12-07T06:25:35.121Z" itemprop="datePublished">2015-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="U3d结合NGUI做的一个Tab切换例子">U3d结合NGUI做的一个Tab切换例子</h2><blockquote>
-<p> 错误说明：以下例子，由于不熟悉NGUI各个控件：如:wiget / panel，所以用了panel，其实更应该用的是wiget !!!!!!!不然会增加Ｎ多个Panel次的渲染。</p>
-</blockquote>
-<h3 id="~~~">~~~</h3><p>参考<a href="http://www.omuying.com/article/69.aspx" title="ddd">Unity3D 自定义选项卡组件</a>结合以前的AS3写的一个</p>
-<h3 id="使用">使用</h3><pre><code><span class="keyword">public</span> UIButton[] tabButtonList;<span class="comment">//标签按钮</span>
-<span class="keyword">public</span> GameObject[] contentList;<span class="comment">//标签内容</span>
-
-    TabGroup tabGroup = <span class="keyword">new</span> TabGroup();
-    GameObject[] buttonList = <span class="keyword">new</span> GameObject[tabButtonList.Length];
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tabButtonList.Length; i++)
-    {
-        buttonList[i] = tabButtonList[i].gameObject;
-    }
-    tabGroup.AddTabs(buttonList);
-    tabGroup.OnTabGroup = <span class="keyword">delegate</span>(<span class="keyword">int</span> selectedIndex)
-    {
-        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; contentList.Length; j++)
-        {
-            <span class="keyword">bool</span> selected = j == selectedIndex;
-            contentList[j].gameObject.SetActive(selected);<span class="comment">//显示哪个内容</span>
-        }
-    };
-    tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
-</code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/12/07/unity3d标签页试验/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/unity3d标签页试验/" data-id="cihvmnidj0002c0suzvmxft68" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/07/hello-world/" data-id="cihvmrrqp0005kssup795ppm2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -226,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/11/17/AS3访问HTTPS(SSL)数据/" data-id="cihvmnie80007c0sul2e5z8zt" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/11/17/AS3访问HTTPS(SSL)数据/" data-id="cihvmrrr20007kssua6e3zgn9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -267,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/09/16/cocos2dx纹理图片设计/" data-id="cihvmnie60006c0sukydgawed" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/09/16/cocos2dx纹理图片设计/" data-id="cihvmrrr00006kssutoglrtvu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/05/15/helloHexo/" data-id="cihvmnidt0004c0su5ghk9z11" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/05/15/helloHexo/" data-id="cihvmrrqn0004kssuovliei4i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -351,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/05/15/hellojet/" data-id="cihvmnidq0003c0su3uwykx8i" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/05/15/hellojet/" data-id="cihvmrrqk0003kssuhpen3n9d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -388,7 +388,7 @@
       <ul>
         
           <li>
-            <a href="/2015/12/07/hello-world/">Hello World</a>
+            <a href="/2015/12/07/unity3d标签页试验/">(no title)</a>
           </li>
         
           <li>
@@ -396,7 +396,7 @@
           </li>
         
           <li>
-            <a href="/2015/12/07/unity3d标签页试验/">(no title)</a>
+            <a href="/2015/12/07/hello-world/">Hello World</a>
           </li>
         
           <li>
