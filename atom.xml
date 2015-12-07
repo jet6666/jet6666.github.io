@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-07T07:25:43.643Z</updated>
+  <updated>2015-12-07T08:12:33.445Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -13,6 +13,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://jet6666.github.io/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
+    <id>http://jet6666.github.io/2015/12/07/unity3d的基本显示/</id>
+    <published>2015-12-07T08:12:33.445Z</published>
+    <updated>2015-12-07T08:12:33.445Z</updated>
+    <content type="html"><![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><pre><code>以下只针对UGUI的
+</code></pre><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>
+<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
+</code></pre><p>然后在界面上给这个image赋值</p>
+<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
+</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
+<p>C#中显示</p>
+<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
+</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
+<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><pre><code>以下只针对UGUI的
+</code></pre><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
+<p>代码中显示图片？？</p>]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -168,31 +194,6 @@
     tabGroup.selectedIndex = <span class="number">0</span>;<span class="comment">//默认第一个标签</span>
 </code></pre><h3 id="图">图</h3><p><img src="/tabgroup/0031.JPG" alt=""><br><img src="/tabgroup/0032.JPG" alt=""><br><img src="/tabgroup/0033.JPG" alt=""><br><img src="/tabgroup/0034.JPG" alt=""></p>]]>
     
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://jet6666.github.io/2015/12/07/unity3d%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%98%BE%E7%A4%BA/"/>
-    <id>http://jet6666.github.io/2015/12/07/unity3d的基本显示/</id>
-    <published>2015-12-07T07:21:49.671Z</published>
-    <updated>2015-12-07T07:21:49.671Z</updated>
-    <content type="html"><![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
-<p>代码中显示图片？？</p>
-<pre><code><span class="keyword">public</span> Texture <span class="built_in">image</span>;
-</code></pre><p>然后在界面上给这个image赋值</p>
-<pre><code>G<span class="built_in">UILayout</span><span class="variable">.Label</span> (image  , G<span class="built_in">UILayout</span><span class="variable">.Width</span> (<span class="number">70</span>), G<span class="built_in">UILayout</span><span class="variable">.Height</span> (<span class="number">70</span>));
-</code></pre><h3 id="显示文字">显示文字</h3><p>不得不说系统自带的Text显示不显示哦，有时Game也不显示？仔细检查一下X,y,Z坐标，还有文本大小，这样基本上就可以看到了</p>
-<p>C#中显示</p>
-<pre><code>GUILayout.<span class="keyword">Label</span> (<span class="string">"组合键3:左右左右空格"</span>);
-</code></pre><p>在界面上输入中文？<br>设置字体？我不清楚了</p>
-<h3 id="显示">显示</h3><p>所有显示都放在OnGUI方法里面吧</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="unity3d的基本显示">unity3d的基本显示</h2><h3 id="显示图片">显示图片</h3><p>import 进去不就可以了，这个简单</p>
-<p>代码中显示图片？？</p>
-<pre><code><span class="keyword">p]]>
     </summary>
     
   </entry>
