@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-07T08:19:14.689Z</updated>
+  <updated>2015-12-07T08:19:50.506Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title></title>
     <link href="http://jet6666.github.io/2015/12/07/Hexo%E5%8E%BB%E6%8E%89google%20fonts/"/>
     <id>http://jet6666.github.io/2015/12/07/Hexo去掉google fonts/</id>
-    <published>2015-12-07T08:19:14.689Z</published>
-    <updated>2015-12-07T08:19:14.689Z</updated>
+    <published>2015-12-07T08:19:50.506Z</published>
+    <updated>2015-12-07T08:19:50.506Z</updated>
     <content type="html"><![CDATA[<h2 id="去掉Hexo的google_fonts">去掉Hexo的google fonts</h2><pre><code>以下只针对默认主题　
 </code></pre><h3 id="修改文件">修改文件</h3><pre><code>hexo<span class="command">\themes</span><span class="command">\landscape</span><span class="command">\layout</span><span class="command">\_</span>partial<span class="command">\head</span>.ejs 
 </code></pre><p>   注释掉google css</p>
