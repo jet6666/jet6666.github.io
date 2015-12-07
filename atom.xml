@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-07T08:12:33.445Z</updated>
+  <updated>2015-12-07T08:18:02.167Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -13,6 +13,23 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://jet6666.github.io/2015/12/07/Hexo%E5%8E%BB%E6%8E%89google%20fonts/"/>
+    <id>http://jet6666.github.io/2015/12/07/Hexo去掉google fonts/</id>
+    <published>2015-12-07T08:18:02.167Z</published>
+    <updated>2015-12-07T08:18:02.167Z</updated>
+    <content type="html"><![CDATA[<h2 id="去掉Hexo的google_fonts">去掉Hexo的google fonts</h2><pre><code>以下只针对默认主题　
+</code></pre><h3 id="修改文件">修改文件</h3><p>   hexo\themes\landscape\layout_partial\head.ejs<br>   注释掉google css</p>
+<h3 id="发布">发布</h3><p>只有重新再发一个文章，再发布才能看到效果</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="去掉Hexo的google_fonts">去掉Hexo的google fonts</h2><pre><code>以下只针对默认主题　
+</code></pre><h3 id="修改文件">修改文件</h3><p>   hexo\themes\landscape\l]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title></title>
