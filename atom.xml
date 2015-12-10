@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-10T10:53:35.946Z</updated>
+  <updated>2015-12-10T11:07:42.696Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title></title>
     <link href="http://jet6666.github.io/2015/12/10/AS3%E4%B8%AD%E4%B8%A4%E7%A7%8D%E7%BB%98%E5%9B%BE%E6%96%B9%E5%BC%8F/"/>
     <id>http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/</id>
-    <published>2015-12-10T10:53:35.946Z</published>
-    <updated>2015-12-10T10:53:35.946Z</updated>
+    <published>2015-12-10T11:07:42.696Z</published>
+    <updated>2015-12-10T11:07:42.696Z</updated>
     <content type="html"><![CDATA[<h2 id="as3中两种位图渲染">as3中两种位图渲染</h2><p>谨以此文对Flash的总结了，byebye as3 </p>
 <h4 id="1-Flash性能优化引起">1.Flash性能优化引起</h4><p>Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)</p>
 <ul>
@@ -28,6 +28,7 @@
 <li><strong>像移动平台大图的Bit　Bliting</strong>：<br>在Flash IDE中支持一种叫做Sprite Sheet导出工具，选中要合成的多个图片，右键生成Sprite Sheet，像不像TexurePacker做的工作？？？还有Unity3D的支持的压缩？？？<br>生成大图之后就可以对这个BitmapData进行copyPixels或者Draw来渲染了。这两种方式差别在下面<br>缺点可能就是太吃内存了<br>参见：<a href="http://www.cnblogs.com/skynet/p/3570421.html" target="_blank" rel="external">SpriteSheet精灵动画引擎</a></li>
 </ul>
 <p><img src="/image/draw_types.JPG" alt=""></p>
+<a id="more"></a>
 <pre><code>这种使用还有以下，还未研究过
 1.全局位块传输
 2.局部位块传输
@@ -109,7 +110,14 @@ frameBitmapList.push(bitmapData);
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="as3中两种位图渲染">as3中两种位图渲染</h2><p>谨以此文对Flash的总结了，byebye as3 </p>
-<h4 id="1-Flash性能优化引起">1.Flash性能优化引起</h4><p>Flash和传统的手机OpenGL的有显卡的渲染方式不]]>
+<h4 id="1-Flash性能优化引起">1.Flash性能优化引起</h4><p>Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)</p>
+<ul>
+<li><strong>传统渲染</strong>：<br>也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上去，显示对象一多就卡，尤其是动画多，有矢量的时候的时候。(矢量图形:movieClip.cacheAsBitmap = true ，有点像IDE里面的右键矢量图形转换为位图的功能？)</li>
+<li><strong>位图化BitmapData渲染</strong>：<br>读取movieclip的所有帧的bitmapData，再用自己来Timer来控制显示形成动画，据说在大量同屏动画时效率非常的高</li>
+<li><strong>像移动平台大图的Bit　Bliting</strong>：<br>在Flash IDE中支持一种叫做Sprite Sheet导出工具，选中要合成的多个图片，右键生成Sprite Sheet，像不像TexurePacker做的工作？？？还有Unity3D的支持的压缩？？？<br>生成大图之后就可以对这个BitmapData进行copyPixels或者Draw来渲染了。这两种方式差别在下面<br>缺点可能就是太吃内存了<br>参见：<a href="http://www.cnblogs.com/skynet/p/3570421.html">SpriteSheet精灵动画引擎</a></li>
+</ul>
+<p><img src="/image/draw_types.JPG" alt=""></p>]]>
+    
     </summary>
     
   </entry>

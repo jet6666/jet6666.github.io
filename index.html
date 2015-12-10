@@ -66,7 +66,7 @@
     <article id="post-AS3中两种绘图方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/12/10/AS3中两种绘图方式/" class="article-date">
-  <time datetime="2015-12-10T10:53:35.946Z" itemprop="datePublished">2015-12-10</time>
+  <time datetime="2015-12-10T11:07:42.696Z" itemprop="datePublished">2015-12-10</time>
 </a>
     
   </div>
@@ -80,92 +80,18 @@
 <ul>
 <li><strong>传统渲染</strong>：<br>也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上去，显示对象一多就卡，尤其是动画多，有矢量的时候的时候。(矢量图形:movieClip.cacheAsBitmap = true ，有点像IDE里面的右键矢量图形转换为位图的功能？)</li>
 <li><strong>位图化BitmapData渲染</strong>：<br>读取movieclip的所有帧的bitmapData，再用自己来Timer来控制显示形成动画，据说在大量同屏动画时效率非常的高</li>
-<li><strong>像移动平台大图的Bit　Bliting</strong>：<br>在Flash IDE中支持一种叫做Sprite Sheet导出工具，选中要合成的多个图片，右键生成Sprite Sheet，像不像TexurePacker做的工作？？？还有Unity3D的支持的压缩？？？<br>生成大图之后就可以对这个BitmapData进行copyPixels或者Draw来渲染了。这两种方式差别在下面<br>缺点可能就是太吃内存了<br>参见：<a href="http://www.cnblogs.com/skynet/p/3570421.html" target="_blank" rel="external">SpriteSheet精灵动画引擎</a></li>
+<li><strong>像移动平台大图的Bit　Bliting</strong>：<br>在Flash IDE中支持一种叫做Sprite Sheet导出工具，选中要合成的多个图片，右键生成Sprite Sheet，像不像TexurePacker做的工作？？？还有Unity3D的支持的压缩？？？<br>生成大图之后就可以对这个BitmapData进行copyPixels或者Draw来渲染了。这两种方式差别在下面<br>缺点可能就是太吃内存了<br>参见：<a href="http://www.cnblogs.com/skynet/p/3570421.html">SpriteSheet精灵动画引擎</a></li>
 </ul>
 <p><img src="/image/draw_types.JPG" alt=""></p>
-<pre><code>这种使用还有以下，还未研究过
-1.全局位块传输
-2.局部位块传输
-3.脏位块传输
-4.骨骼动画
-</code></pre><h3 id="2-不同的绘图方式">2.不同的绘图方式</h3><p>copyPixels只能简单地将一个矩形区域的像素复制到另一处，但不能实现其他旋转、缩放及颜色变化等操作，因此是更为快速的API。如果想以速度最优但又想使用旋转、缩放等操作，可以先对要复制的图像进行预处理，比如预先生成一个原图像旋转了各种角度的精灵表。</p>
-<ul>
-<li><p><strong>BitmapData.draw方式</strong><br><img src="/image/bitmap.draw.JPG" alt=""></p>
-<p>  如图所示，他不光支持bitmapData，而支持所有的Sprite mc 什么的….<br>  <code>bitmapData.draw(spritesheet, matrix, colortransform, blendmode, rect);</code></p>
-</li>
-<li><p><strong>BitmapData.copypixes方式</strong><br><img src="/image/bitmap.copypixes.JPG" alt=""></p>
-<p>   只有支持bitmapData了</p>
-<p>   <code>bitmapData.copyPixels(spritesheet, spriteRect, new Point())</code></p>
-</li>
-<li><p><strong>代码实现</strong></p>
-</li>
-</ul>
-<h4 id="a-BitmapData-draw方式">a.BitmapData.draw方式</h4><pre><code><span class="comment">//Movieclip中有补间动画或者全是位图</span>
-mc.gotoAndStop（frame）；
-<span class="built_in">rect</span> = mc.getBounds(mc);
-bitmapData= <span class="keyword">new</span> BitmapData(mc.<span class="variable">width</span>，mc.<span class="variable">height</span>,<span class="keyword">true</span>,<span class="number">0</span>);
-<span class="comment">//.draw(mc ....) 是从mc中读取出来位图数据出来，名字为source更好</span>
-bitmapData.<span class="title">draw</span>(mc,<span class="keyword">new</span> Matrix(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,-<span class="built_in">rect</span>.x,-<span class="built_in">rect</span>.y));
-<span class="comment">//加入列表</span>
-frameBitmapList.push(bitmapData);
-
-  <span class="comment">//或者这样写</span>
-  var s:snake = <span class="keyword">new</span> snake();
-  var frame:<span class="keyword">Array</span> = [];
-  var totalFrames:<span class="built_in">int</span> = s.totalFrames;
-  <span class="keyword">for</span>(var i:<span class="built_in">int</span>=<span class="number">1</span>; i {
-      var bmd:BitmapData = <span class="keyword">new</span> BitmapData(s.<span class="variable">width</span>, s.<span class="variable">height</span>);
-      s.gotoAndStop(i);
-      bmd.<span class="title">draw</span>(s);
-      frame.push(bmd);
-  }
-</code></pre><h3 id="3-实例对比">3.实例对比</h3><ul>
-<li>直接copyPixes来显示 比 把copyPiexes完的BitmapData放在放数组里，再bitmapData = bitmapdata要<strong>快</strong>，可能这个数组占了太大的内存了！  来源自：<a href="http://bbs.9ria.com/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=77376&amp;pid=723368&amp;fromuid=392389" target="_blank" rel="external">http://bbs.9ria.com/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=77376&amp;pid=723368&amp;fromuid=392389</a></li>
-</ul>
-<p>下载实例：<a href="/image/flashdraw.rar" title="下载">实例下载</a></p>
-<h3 id="4-其他说明">4.其他说明</h3><p>0.Flash中的Matrix</p>
-<p>1.Scaleform</p>
-<p>其他网络游戏中有使用<code>Scaleform</code>来做界面，因为他是flash扩展来做 (需要安装<code>Adobe Extension Manager</code>,绿色版本没有的)</p>
-<p>2.Flash性能调试工具</p>
-<ul>
-<li>用<code>FDT</code>的<code>Debug Profile</code>来显示对象，查看内存等</li>
-<li>用<code>Adoble Scout</code>来观察游戏的内存，CPU占用情况，以及脏矩形</li>
-<li>用windows进程查看工具，看内存的CPU消耗情况，这个最接近真实情况</li>
-</ul>
-<p>3.Flash地图</p>
-<p>一般都是专用的地图编辑器来做，一张地图和可行走区域的XML，这里的xml可以用读取swf的Bitmap来做，红色不可以走，其他的不可以走，刚好可以和地图图片对应起来，还刚好用Flash完成</p>
-<p>4.实验时有时透明的飞机有白色的底</p>
-<p><code>本身draw出来的是不带背景的, 你看到的背景白色,是因为bmd是透明的.所以看到下面了. 建议在bmd下面再画一个其他颜色的层,这样就可以看到bmd的透明部分了.</code></p>
-<pre><code> <span class="comment">//这样会透明，但是飞机会有白底</span>
-<span class="comment">//canvasBD=new BitmapData(400,400);</span>
- <span class="comment">//有个底色不透明，上面的飞机就会透明</span>
- canvasBD=<span class="keyword">new</span> BitmapData(<span class="number">400</span>,<span class="number">400</span> ,<span class="literal">false</span>,<span class="number">0x000000</span>);
- canvasBitmap=<span class="keyword">new</span> Bitmap(canvasBD);
- addChild(canvasBitmap);
- <span class="comment">//哪怕加了有底的BitmapData上去</span>
- canvasBD.copyPixels(backgroundBD,backgroundRect, backgroundPoint);
- canvasBD.copyPixels(tileSheet,heliRect, heliPoint);
-</code></pre><p><img src="/image/draw_transparent.JPG" alt=""></p>
-<p><img src="/image/draw_blackback.JPG" alt=""></p>
-<h3 id="5。疑问与特学习：">5。疑问与特学习：</h3><ul>
-<li>脏矩形这个例子中：背景图如果不动的话，完全可以不用每次都CopyPixels？？？这算脏矩形？：<a href="http://bbs.9ria.com/thread-96717-1-1.html" target="_blank" rel="external">http://bbs.9ria.com/thread-96717-1-1.html</a></li>
-</ul>
-<ul>
-<li>卡马克卷轴算法</li>
-</ul>
-<h3 id="参考：">参考：</h3><ol>
-<li>MMOARPG的位图优化性能展示: <a href="http://bbs.9ria.com/thread-60130-1-1.html" target="_blank" rel="external">http://bbs.9ria.com/thread-60130-1-1.html</a></li>
-<li>Flash应用效率优化启示录（渲染篇） <a href="http://www.iamsevent.com/post/46.html" target="_blank" rel="external">http://www.iamsevent.com/post/46.html</a></li>
-<li>Flash优化,追求速度的渲染：<a href="http://blog.dreamana.com/2011/10/06/render-for-speed/" target="_blank" rel="external">http://blog.dreamana.com/2011/10/06/render-for-speed/</a></li>
-<li>再谈cacheAsBitmap <a href="http://www.daimami.com/web/272011.htm" target="_blank" rel="external">http://www.daimami.com/web/272011.htm</a></li>
-<li>Ｂit Bliting 有很绚的例子:<a href="http://www.yopsolo.fr/wp/2012/11/08/tutorial-blitting/" target="_blank" rel="external">http://www.yopsolo.fr/wp/2012/11/08/tutorial-blitting/</a></li>
-<li>位图渲染角色动画的实现方法的性能差异  <a href="http://bbs.9ria.com/thread-77376-1-1.html" target="_blank" rel="external">http://bbs.9ria.com/thread-77376-1-1.html</a></li>
-</ol>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/12/10/AS3中两种绘图方式/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/" data-id="cii04nrx00009ncsuwn5107zz" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/" data-id="cii0553dh0009wosucb2t63jt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +121,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/Hexo去掉google fonts/" data-id="cii04nrwt0007ncsufnn286dm" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/07/Hexo去掉google fonts/" data-id="cii0553d90007wosu37kfj67n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +158,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/unity3d的基本显示/" data-id="cii04nrvo0001ncsusgu1loot" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/07/unity3d的基本显示/" data-id="cii0553c50001wosux0wux1jn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +212,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/unity3d标签页试验/" data-id="cii04nrw20002ncsucl7t93wv" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/07/unity3d标签页试验/" data-id="cii0553cj0002wosu2gbyheae" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +257,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/07/hello-world/" data-id="cii04nrwn0005ncsu3njforfw" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/07/hello-world/" data-id="cii0553d10005wosuop0aq90z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +297,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/11/17/AS3访问HTTPS(SSL)数据/" data-id="cii04nrww0008ncsuoyb5mxc2" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/11/17/AS3访问HTTPS(SSL)数据/" data-id="cii0553de0008wosuj9bafmdz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +338,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/09/16/cocos2dx纹理图片设计/" data-id="cii04nrwq0006ncsuuli8ohr2" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/09/16/cocos2dx纹理图片设计/" data-id="cii0553d60006wosumiosb3lf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +375,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/05/15/helloHexo/" data-id="cii04nrwf0004ncsutzfztqvx" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/05/15/helloHexo/" data-id="cii0553cu0004wosu2fczq74x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -496,7 +422,7 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/05/15/hellojet/" data-id="cii04nrwc0003ncsu9xfzt7y8" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/05/15/hellojet/" data-id="cii0553cr0003wosudc1yl0k7" class="article-share-link">Share</a>
       
       
     </footer>
