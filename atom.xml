@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://jet6666.github.io/"/>
-  <updated>2015-12-10T11:07:42.696Z</updated>
+  <updated>2015-12-10T11:11:47.820Z</updated>
   <id>http://jet6666.github.io/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title></title>
     <link href="http://jet6666.github.io/2015/12/10/AS3%E4%B8%AD%E4%B8%A4%E7%A7%8D%E7%BB%98%E5%9B%BE%E6%96%B9%E5%BC%8F/"/>
     <id>http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/</id>
-    <published>2015-12-10T11:07:42.696Z</published>
-    <updated>2015-12-10T11:07:42.696Z</updated>
+    <published>2015-12-10T11:11:47.820Z</published>
+    <updated>2015-12-10T11:11:47.820Z</updated>
     <content type="html"><![CDATA[<h2 id="as3中两种位图渲染">as3中两种位图渲染</h2><p>谨以此文对Flash的总结了，byebye as3 </p>
 <h4 id="1-Flash性能优化引起">1.Flash性能优化引起</h4><p>Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)</p>
 <ul>
@@ -69,6 +69,7 @@ frameBitmapList.push(bitmapData);
 <li>直接copyPixes来显示 比 把copyPiexes完的BitmapData放在放数组里，再bitmapData = bitmapdata要<strong>快</strong>，可能这个数组占了太大的内存了！  来源自：<a href="http://bbs.9ria.com/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=77376&amp;pid=723368&amp;fromuid=392389" target="_blank" rel="external">http://bbs.9ria.com/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=77376&amp;pid=723368&amp;fromuid=392389</a></li>
 </ul>
 <p>下载实例：<a href="/image/flashdraw.rar" title="下载">实例下载</a></p>
+<p><img src="/image/0041.JPG" alt=""></p>
 <h3 id="4-其他说明">4.其他说明</h3><p>0.Flash中的Matrix</p>
 <p>1.Scaleform</p>
 <p>其他网络游戏中有使用<code>Scaleform</code>来做界面，因为他是flash扩展来做 (需要安装<code>Adobe Extension Manager</code>,绿色版本没有的)</p>
