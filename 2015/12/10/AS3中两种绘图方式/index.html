@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JetWong&#39;s Note</title>
+  <title>as3中两种位图渲染 | JetWong&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="as3中两种位图渲染谨以此文对Flash的总结了，byebye as3 
+  <meta name="description" content="谨以此文对Flash的总结了，byebye as3 
 1.Flash性能优化引起Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)
 
-传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都a">
+传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JetWong's Note">
+<meta property="og:title" content="as3中两种位图渲染">
 <meta property="og:url" content="http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/index.html">
 <meta property="og:site_name" content="JetWong's Note">
-<meta property="og:description" content="as3中两种位图渲染谨以此文对Flash的总结了，byebye as3 
+<meta property="og:description" content="谨以此文对Flash的总结了，byebye as3 
 1.Flash性能优化引起Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)
 
-传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都a">
+传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上">
 <meta property="og:image" content="/image/draw_types.JPG">
 <meta property="og:image" content="/image/bitmap.draw.JPG">
 <meta property="og:image" content="/image/bitmap.copypixes.JPG">
@@ -24,11 +24,11 @@
 <meta property="og:image" content="/image/draw_transparent.JPG">
 <meta property="og:image" content="/image/draw_blackback.JPG">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JetWong's Note">
-<meta name="twitter:description" content="as3中两种位图渲染谨以此文对Flash的总结了，byebye as3 
+<meta name="twitter:title" content="as3中两种位图渲染">
+<meta name="twitter:description" content="谨以此文对Flash的总结了，byebye as3 
 1.Flash性能优化引起Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)
 
-传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都a">
+传统渲染：也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上">
   
     <link rel="alternative" href="/atom.xml" title="JetWong&#39;s Note" type="application/atom+xml">
   
@@ -79,16 +79,30 @@
         <section id="main"><article id="post-AS3中两种绘图方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/12/10/AS3中两种绘图方式/" class="article-date">
-  <time datetime="2015-12-10T11:11:47.820Z" itemprop="datePublished">2015-12-10</time>
+  <time datetime="2015-12-09T16:00:00.000Z" itemprop="datePublished">2015-12-10</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日志/">日志</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      as3中两种位图渲染
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="as3中两种位图渲染">as3中两种位图渲染</h2><p>谨以此文对Flash的总结了，byebye as3 </p>
+        <p>谨以此文对Flash的总结了，byebye as3 </p>
 <h4 id="1-Flash性能优化引起">1.Flash性能优化引起</h4><p>Flash和传统的手机OpenGL的有显卡的渲染方式不同(？)，所以只能通过以下方式来处理了。(在还不能使用显卡之前都是CPU承担了大部分工作，就算支持显示渲染了，还有兼容性的问题)</p>
 <ul>
 <li><strong>传统渲染</strong>：<br>也是用Flash IDE来做的MovieClip ,Shape ,Bitmap,如果不经过其他处理全都addChild()上去，显示对象一多就卡，尤其是动画多，有矢量的时候的时候。(矢量图形:movieClip.cacheAsBitmap = true ，有点像IDE里面的右键矢量图形转换为位图的功能？)</li>
@@ -162,6 +176,8 @@ frameBitmapList.push(bitmapData);
  canvasBD.copyPixels(tileSheet,heliRect, heliPoint);
 </code></pre><p><img src="/image/draw_transparent.JPG" alt=""></p>
 <p><img src="/image/draw_blackback.JPG" alt=""></p>
+<p>5.关于Flash下载资源最好３个loader同时下载的原因：</p>
+<p> 因为浏览器的限制，最好三个左右进程进行loader下载效率最高，不用下载完一下再下载另一个：<a href="http://www.zhihu.com/question/20474326" target="_blank" rel="external">http://www.zhihu.com/question/20474326</a></p>
 <h3 id="5。疑问与特学习：">5。疑问与特学习：</h3><ul>
 <li>脏矩形这个例子中：背景图如果不动的话，完全可以不用每次都CopyPixels？？？这算脏矩形？：<a href="http://bbs.9ria.com/thread-96717-1-1.html" target="_blank" rel="external">http://bbs.9ria.com/thread-96717-1-1.html</a></li>
 </ul>
@@ -180,9 +196,11 @@ frameBitmapList.push(bitmapData);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/" data-id="cii05acbk0009tssuf25v9q2h" class="article-share-link">Share</a>
+      <a data-url="http://jet6666.github.io/2015/12/10/AS3中两种绘图方式/" data-id="cii5ensfm000azksuhtrxp0kw" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/as3/">as3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/">cocos2dx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flash/">flash</a></li></ul>
+
     </footer>
   </div>
   
@@ -205,16 +223,37 @@ frameBitmapList.push(bitmapData);
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/as3/">as3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/">cocos2dx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/as3/" style="font-size: NaNpx;">as3</a><a href="/tags/cocos2dx/" style="font-size: NaNpx;">cocos2dx</a><a href="/tags/flash/" style="font-size: NaNpx;">flash</a><a href="/tags/hexo/" style="font-size: NaNpx;">hexo</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -226,7 +265,7 @@ frameBitmapList.push(bitmapData);
       <ul>
         
           <li>
-            <a href="/2015/12/10/AS3中两种绘图方式/">(no title)</a>
+            <a href="/2015/12/10/AS3中两种绘图方式/">as3中两种位图渲染</a>
           </li>
         
           <li>
@@ -242,7 +281,7 @@ frameBitmapList.push(bitmapData);
           </li>
         
           <li>
-            <a href="/2015/12/07/hello-world/">Hello World</a>
+            <a href="/2015/11/17/AS3访问HTTPS(SSL)数据/">(no title)</a>
           </li>
         
       </ul>
