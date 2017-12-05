@@ -1,9 +1,0 @@
-
-{
-	"initial": [
-		"libs/libs.js"
-	],
-	"game": [
-		"main.min.js"
-	]
-}
